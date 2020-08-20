@@ -91,4 +91,26 @@ decr--; // оператор деркремент постфіксний
 const isChecked = true,
       isClosed = true;
 
-console.log(isChecked || !isClosed);
+// console.log(isChecked || !isClosed);
+
+const answers1 = ['Сколько фильмов вы уже посмотрели?', 'Один из последних просмотренных фильмов?', 'На сколько оцените его?'];
+
+const numberOfFilms = +prompt('Сколько фильмов вы уже посмотрели?', '');
+
+
+const personalMovieDB = {
+	count: numberOfFilms,
+	movies: {
+	},
+	actors: {},
+	genres: [],
+	privat: false,
+};
+
+const answer1 = prompt('Один из последних просмотренных фильмов?', ''),
+      answer2 = prompt('На сколько оцените его?', ''),
+      answer3 = prompt('Один из последних просмотренных фильмов?', ''),
+      answer4 = prompt('На сколько оцените его?', '');
+
+      personalMovieDB.movies[answer1] = answer2;
+      personalMovieDB.movies[answer3] = answer4;
