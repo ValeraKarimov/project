@@ -16,11 +16,11 @@ const bool = true;
 let ddd;
 // console.log(ddd);
 
-const obj = {
-  name: 'Valerii',
-  age: 25,
-  isMarried: false
-};
+// const obj = {
+//   name: 'Valerii',
+//   age: 25,
+//   isMarried: false
+// };
 
 // console.log(obj.name);
 
@@ -384,36 +384,132 @@ const logger = function() {
 // }
 
 //                  021 ARRAYS
-const arr = [10, 2, 13, 26, 8];
+// const arr = [10, 2, 13, 26, 8];
 // arr.sort(); // виведе [10, 13, 2, 26, 8]; так як метод sort сортує елементи як строки
-arr.sort(compareNum); // відсортує числа у правильному поряду [2, 8, 10, 13, 26]
-console.log(arr); 
+// arr.sort(compareNum); // відсортує числа у правильному поряду [2, 8, 10, 13, 26]
+// console.log(arr); 
 
-function compareNum(a, b) {
-  return a - b;
-}
+// function compareNum(a, b) {
+//   return a - b;
+// }
 
 // arr[99] = 0;
 // console.log(arr.length);
 
-arr.forEach(function(item, i, arr){
-  console.log(`${i}: ${item} внутрі масива ${arr}`);
-});
+// arr.forEach(function(item, i, arr){
+//   console.log(`${i}: ${item} внутрі масива ${arr}`);
+// });
 
-arr.pop(); // видаляє останній елемент масиву
-arr.push(10); // додає елемент в кінець масиву
+// arr.pop(); // видаляє останній елемент масиву
+// arr.push(10); // додає елемент в кінець масиву
 
-console.log(arr);
+// console.log(arr);
 
-for (let i = 0; i < arr.length; i++) {
-  console.log(arr[i]);
+// for (let i = 0; i < arr.length; i++) {
+//   console.log(arr[i]);
+// }
+
+// for (let value of arr) {
+//   console.log(value);
+// }
+
+// const str = prompt('','');
+// const products = str.split(', '); // формує масив із введених даних із розподілювачем
+// products.sort(); // сортує елементи
+// console.log(products.join('; ')); // виводить елементи із введеним розподілювачем  
+
+
+//                  022
+let a = 5,
+    b = a;
+
+b = b + 5;
+
+console.log(b);
+console.log(a);
+
+const obj = {
+  a: 5,
+  b: 1
+};
+
+// const copy = obj; // ссилка
+
+// copy.a = 10;
+
+// console.log(copy);
+// console.log(obj);
+
+function copy(mainObj) {
+  let objCopy = {};
+  
+  let key;
+  for(key in mainObj) {
+    objCopy[key] = mainObj[key];
+  }
+  return objCopy;
 }
 
-for (let value of arr) {
-  console.log(value);
+const numbers = {
+  a: 2,
+  b: 5,
+  c: {
+    x: 7,
+    y: 4
+  }
+};
+
+const newNumbers = copy(numbers);
+
+numbers.a = 10;
+
+// console.log(newNumbers);
+// console.log(numbers);
+
+const add = {
+  d: 17,
+  e: 20
+};
+
+console.log(Object.assign(numbers, add)); // додає в обєкт ще один обєкт
+const clone = Object.assign({}, add);
+
+clone.d = 20;
+
+// console.log(add);
+// console.log(clone);
+
+const oldArray = ['a', 'b', 'c'];
+const newArray = oldArray.slice();
+
+newArray[3] = 'd';
+
+console.log(oldArray);
+console.log(newArray);
+
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejournal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
+
+console.log(internet);
+
+function log(a, b, c) {
+  console.log(a);
+  console.log(b);
+  console.log(c);
 }
 
-const str = prompt('','');
-const products = str.split(', '); // формує масив із введених даних із розподілювачем
-products.sort(); // сортує елементи
-console.log(products.join('; ')); // виводить елементи із введеним розподілювачем  
+const num = [2, 4, 7];
+
+log(...num); // спрет-оператор
+
+const array = ['a', 'b'];
+
+const newAarray = [...array]; // робить поверхневу копію масива
+
+const q = {
+  one: 1,
+  two: 2
+};
+
+const newObj = {...q};
