@@ -676,3 +676,27 @@ const logger = function() {
 // 3)
 
 // console.log(typeof(!!'4444'));
+
+
+//                     027 TASKS
+// let x = 5; alert( x++ ); // 5
+// [ ] + false - null + true // масив перетвориться на строку плюс фолс дасть фолс, й потім - нулл дасть NaN
+// let y = 1; let x = y = 2; alert(x); // 2
+// [ ] + 1 + 2 // 12
+// alert( "1"[0] ) // 1, ([0] - індекс символа який виведе із строки)
+// 2 && 1 && null && 0 && undefined // null
+
+// && запинається на брехні
+// || запинається на правді
+
+
+// alert( null || 2 && 3 || 4 ); // 3
+
+// const a = [1,2,3];
+// const b = [1,2,3];
+
+// console.log(a == b); // false
+
+// alert( +"Infinity" ); // виведе строку
+
+// 0 || "" || 2 || undefined || true || falsе // 2
