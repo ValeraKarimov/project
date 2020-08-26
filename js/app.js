@@ -545,74 +545,134 @@ const logger = function() {
 // john.sayHello();
 //                      024 
 
-const personalMovieDB = {
-  count: 0,
-  movies: {
-  },
-  actors: {},
-  genres: [],
-  privat: false,
-  start: function() {
-personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-personalMovieDB.detectPersonalLevel(personalMovieDB.count);
-while(personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
-personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
-}
-},
-rememberMyFilms: function() {
-for(let i = 1; i < 2; i++) {
-const answer1 = prompt('Один из последних просмотренных фильмов?', '');
-if(answer1.length > 50){
-  console.log('ввести название фильма длинее, чем 50 символов');
-  i--;
-} else if (answer1.length === 0) {
-  console.log('zero');
-  i--;
-} else {
-  const answer2 = prompt('На сколько оцените его?', '');
-  personalMovieDB.movies[answer1] = answer2;
-}
+// const personalMovieDB = {
+//   count: 0,
+//   movies: {
+//   },
+//   actors: {},
+//   genres: [],
+//   privat: false,
+//   start: function() {
+// personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// personalMovieDB.detectPersonalLevel(personalMovieDB.count);
+// while(personalMovieDB.count == '' || personalMovieDB.count == null || isNaN(personalMovieDB.count)) {
+// personalMovieDB.count = +prompt('Сколько фильмов вы уже посмотрели?', '');
+// }
+// },
+// rememberMyFilms: function() {
+// for(let i = 1; i < 2; i++) {
+// const answer1 = prompt('Один из последних просмотренных фильмов?', '');
+// if(answer1.length > 50){
+//   console.log('ввести название фильма длинее, чем 50 символов');
+//   i--;
+// } else if (answer1.length === 0) {
+//   console.log('zero');
+//   i--;
+// } else {
+//   const answer2 = prompt('На сколько оцените его?', '');
+//   personalMovieDB.movies[answer1] = answer2;
+// }
  
-}	
-},
-detectPersonalLevel: function() {
-if(personalMovieDB.count < 10) {
-console.log("Просмотрено довольно мало фильмов");
-} else if(personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
-console.log("Вы классический зритель");
-} else if(personalMovieDB.count > 30) {
-console.log("Вы киноман");
-} else {
-console.log("Произошла ошибка");
-}
+// }	
+// },
+// detectPersonalLevel: function() {
+// if(personalMovieDB.count < 10) {
+// console.log("Просмотрено довольно мало фильмов");
+// } else if(personalMovieDB.count >= 10 && personalMovieDB.count <= 30) {
+// console.log("Вы классический зритель");
+// } else if(personalMovieDB.count > 30) {
+// console.log("Вы киноман");
+// } else {
+// console.log("Произошла ошибка");
+// }
 
-},
-showMyDB: function(privat) {
-if(privat == false) {
-console.log(personalMovieDB);
-}
-},
-toggleVisibleMyDB: function() {
-if(personalMovieDB.privat === false) {
-personalMovieDB.privat = true;
-} else {
-personalMovieDB.privat = false;
-}
-},
-writeYourGenres: function() {
-for(let i = 1; i <= 3; i++){
-  let genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
-  if(genre == '' || genre == null) {
-    console.log('incorect text');
-    i--;
-  } else {
-    personalMovieDB.genres[i - 1] = genre;
-  }
-}
-  personalMovieDB.genres.forEach((item, i) => {
-    console.log(`Любимый жанр ${i + 1} - это ${item}`);
-  });
-}
+// },
+// showMyDB: function(privat) {
+// if(privat == false) {
+// console.log(personalMovieDB);
+// }
+// },
+// toggleVisibleMyDB: function() {
+// if(personalMovieDB.privat === false) {
+// personalMovieDB.privat = true;
+// } else {
+// personalMovieDB.privat = false;
+// }
+// },
+// writeYourGenres: function() {
+// for(let i = 1; i <= 3; i++){
+//   let genre = prompt(`Ваш любимый жанр под номером ${i}`, '');
+//   if(genre == '' || genre == null) {
+//     console.log('incorect text');
+//     i--;
+//   } else {
+//     personalMovieDB.genres[i - 1] = genre;
+//   }
+// }
+//   personalMovieDB.genres.forEach((item, i) => {
+//     console.log(`Любимый жанр ${i + 1} - это ${item}`);
+//   });
+// }
 
 
-};
+// };
+
+//                        025 DEBUG CONSOLE
+// debugger;
+//                        026 Динамічна типізація
+
+// To String
+
+// 1)
+// console.log(typeof(String(null)));
+// console.log(typeof(String(4)));
+
+// 2) конкатенація
+// console.log(typeof(5 + ''));
+
+// const num = 5;
+
+// console.log('https://vk.com/catalog/' + num);
+
+// const fontSize = 26 + 'px';
+
+// To Number
+
+// 1)
+
+// console.log(typeof(Number('4')));
+
+// 2) унарний плюс
+
+// console.log(typeof(+'5'));
+
+// 3)
+
+// console.log(typeof(parseInt('15px', 10)));
+
+// let answ = +prompt('answer', '');
+
+// To Boolean
+
+// 0, '', null, undefined, NaN;
+
+// let switcher = null;
+
+// if(switcher) {
+//   console.log('working...');
+// }
+
+// switcher = 1;
+
+// if(switcher) {
+//   console.log('working...');
+// }
+
+
+// 2)
+
+// console.log(typeof(Boolean(4)));
+
+// 3)
+
+// console.log(typeof(!!'4444'));
