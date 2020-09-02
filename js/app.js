@@ -786,9 +786,9 @@ const logger = function() {
 //                        031 EVENT HANDLER
 
 // const btn = document.querySelector('.btn-1');
-const overlay = document.querySelector('.overlay');
+// const overlay = document.querySelector('.overlay');
 
-const btns = document.querySelectorAll('button');
+// const btns = document.querySelectorAll('button');
 
 // btn.onclick = function() {
 //   alert('click');
@@ -800,14 +800,14 @@ const btns = document.querySelectorAll('button');
 
 
 // let i = 0;
-const deleteElement = (e) => {
-  console.log(e.target);
-  console.log(e.type);
+// const deleteElement = (e) => {
+  // console.log(e.target);
+  // console.log(e.type);
   // i++;
   // if(i == 1) {
   //   btn.removeEventListener('click', deleteElement);
   // }
-};
+// };
 
 
 // btn.addEventListener('click', deleteElement);
@@ -815,16 +815,43 @@ const deleteElement = (e) => {
 
 // всплитє - це коли собитіє срабатує на самому вложеному елементі, затем на його родітєлі якшо він є і так вище і вище піднімаючись по іерархії
 
-btns.forEach(item => {
-    console.log(item);
-    item.addEventListener('click', deleteElement, {once: true}); // 3 значення (once) дозволяє лиш 1 раз реагувати на собитія
-  });
+// btns.forEach(item => {
+//     console.log(item);
+//     item.addEventListener('click', deleteElement, {once: true}); // 3 значення (once) дозволяє лиш 1 раз реагувати на собитія
+//   });
   
 
-const link = document.querySelector('.ref');
+// const link = document.querySelector('.ref');
 
-link.addEventListener('click', (e) => {
-  e.preventDefault(); // міняє поведєніє ссилки на таке яке вкаже програміст нище
+// link.addEventListener('click', (e) => {
+//   e.preventDefault(); // міняє поведєніє ссилки на таке яке вкаже програміст нище
 
-  console.log(e.target);
-});
+//   console.log(e.target);
+// });
+
+//                      032 DOM TREE
+
+// console.log(document.head);
+// console.log(document.documentElement);
+// console.log(document.body.childNodes); // дозволяє получити всі ноди й вузли які знаходяться внутрі цього родітєля
+
+// console.log(document.body.firstChild); // отримати перший елемент
+// console.log(document.body.firstElementChild); // отримати перший елемент
+// console.log(document.body.lastElementChild); // отримати останній елемент
+// console.log(document.body.lastChild); // отримати останній елемент
+
+// console.log(document.querySelector('#current').parentNode.parentNode);
+
+// console.log(document.querySelector('#current').parentElement);
+
+// console.log(document.querySelector('[data-current="3"]').nextSibling);
+// console.log(document.querySelector('[data-current="3"]').previousSibling);
+
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+
+for (let node of document.body.childNodes) {
+  if(node.nodeName == '#text'){
+    continue;
+  }
+  console.log(node);
+}
