@@ -729,56 +729,102 @@ const logger = function() {
 
 //                       029 DOM Action
 
-const box = document.getElementById('box'),
-      btns = document.getElementsByTagName('button'),
-      circles = document.getElementsByClassName('circle'),
-      wrapper = document.querySelector('.wrapper'),
-      hearts = wrapper.querySelectorAll('.heart'),
-      oneHeart = wrapper.querySelector('.heart');
+// const box = document.getElementById('box'),
+//       btns = document.getElementsByTagName('button'),
+//       circles = document.getElementsByClassName('circle'),
+//       wrapper = document.querySelector('.wrapper'),
+//       hearts = wrapper.querySelectorAll('.heart'),
+//       oneHeart = wrapper.querySelector('.heart');
 
 
   // box.style.backgroundColor = 'blue';
   // box.style.width = '500px';
 
-  box.style.cssText = 'background-color: blue; width: 500px';
+  // box.style.cssText = 'background-color: blue; width: 500px';
     
-  btns[1].style.borderRadius = '100%';
+  // btns[1].style.borderRadius = '100%';
 
-  circles[0].style.backgroundColor = 'red';
+  // circles[0].style.backgroundColor = 'red';
 
   // for (let i = 0; i < hearts.length; i++) {
   //   hearts[i].style.backgroundColor = 'blue';
   // }
 
-  hearts.forEach(item => {
-    item.style.backgroundColor = 'blue';
-  });
+  // hearts.forEach(item => {
+  //   item.style.backgroundColor = 'blue';
+  // });
 
-  const div = document.createElement('div');
+  // const div = document.createElement('div'); // create tag
   // const text = document.createTextNode('Im here');
 
-  div.classList.add('black');
+  // div.classList.add('black'); // add class to tag 'div'
 
-  // document.body.append(div);
+  // document.body.append(div); // add element 'div' to end in list in DOM 
 
-  wrapper.append(div); // new method
+  // wrapper.append(div); // new method (add element 'div' to DOM)
   // wrapper.appendChild(div); // old
 
-  // wrapper.prepend(div);
+  // wrapper.prepend(div); // add element 'div' to begin in list in DOM 
 
-  // hearts[0].before(div);
-  // hearts[0].after(div);
+  // hearts[0].before(div); // add element 'div' before elememt hearts[0] in DOM 
+  // hearts[0].after(div); // add element 'div' after elememt hearts[0] in DOM 
 
-  // wrapper.insertBefore(div, hearts[0]); //old
+  // wrapper.insertBefore(div, hearts[0]); //old (додаєм елемент на сторінку, 1- елемент який додаєм, 2- перед яким елементом вставляємо)
 
-  // circles[0].remove();
+  // circles[0].remove(); // delete element 
   // wrapper.removeChild(hearts[1]); //old
 
-  hearts[0].replaceWith(circles[0]);
+  // hearts[0].replaceWith(circles[0]); // заміна елемента іншим
   // wrapper.replaceChild(circles[0], hearts[0]);
 
-  div.innerHTML = '<h1>Hello World</h1>';
+  // div.innerHTML = '<h1>Hello World</h1>'; // для вставки html в елемент  
   
-  // div.textContent = 'hello';
+  // div.textContent = 'hello'; // для вставки текста в елемент 
 
-div.insertAdjacentHTML('afterend', '<h2>Hello</h2>');
+// div.insertAdjacentHTML('afterend', '<h2>Hello</h2>'); // для вставки html-кода у вибраний елемент 
+
+//                        031 EVENT HANDLER
+
+// const btn = document.querySelector('.btn-1');
+const overlay = document.querySelector('.overlay');
+
+const btns = document.querySelectorAll('button');
+
+// btn.onclick = function() {
+//   alert('click');
+// };
+
+// btn.addEventListener('click', () => {
+//   alert('Click');
+// });
+
+
+// let i = 0;
+const deleteElement = (e) => {
+  console.log(e.target);
+  console.log(e.type);
+  // i++;
+  // if(i == 1) {
+  //   btn.removeEventListener('click', deleteElement);
+  // }
+};
+
+
+// btn.addEventListener('click', deleteElement);
+// overlay.addEventListener('click', deleteElement);
+
+// всплитє - це коли собитіє срабатує на самому вложеному елементі, затем на його родітєлі якшо він є і так вище і вище піднімаючись по іерархії
+
+btns.forEach(item => {
+    console.log(item);
+    item.addEventListener('click', deleteElement, {once: true}); // 3 значення (once) дозволяє лиш 1 раз реагувати на собитія
+  });
+  
+
+const link = document.querySelector('.ref');
+
+link.addEventListener('click', (e) => {
+  e.preventDefault(); // міняє поведєніє ссилки на таке яке вкаже програміст нище
+
+  console.log(e.target);
+});
