@@ -866,30 +866,42 @@ const logger = function() {
 // touchleave
 // touchcancel
 
-window.addEventListener('DOMContentLoaded', () => {
-  const box = document.querySelector('.first');
+// window.addEventListener('DOMContentLoaded', () => {
+//   const box = document.querySelector('.first');
 
-  box.addEventListener('touchstart', (e) => {
-    e.preventDefault();
+//   box.addEventListener('touchstart', (e) => {
+//     e.preventDefault();
 
-    console.log('start');
-    console.log(e.touches);
-  });
+//     console.log('start');
+//     console.log(e.touches);
+//   });
 
-  box.addEventListener('touchmove', (e) => {
-    e.preventDefault();
+//   box.addEventListener('touchmove', (e) => {
+//     e.preventDefault();
 
-    console.log('move');
-    console.log(e.targetTouches[0].pageX);
-  });
+//     console.log('move');
+//     console.log(e.targetTouches[0].pageX);
+//   });
 
-  box.addEventListener('touchend', (e) => {
-    e.preventDefault();
+//   box.addEventListener('touchend', (e) => {
+//     e.preventDefault();
 
-    console.log('end');
-  });
-});
+//     console.log('end');
+//   });
+// });
 
 // touches
 // targetTouches
 // changedTouches
+
+//                      035 async / defer
+
+// function loadScript(src) {
+//   const script = document.createElement('script');
+//   script.src = src;
+//   script.async = false;
+//   document.body.append(script);
+// }
+
+// loadScript('js/test.js');
+// loadScript('js/some.js');
