@@ -1,4 +1,4 @@
-"use strict";
+ "use strict";
 
 
 let number = 5;
@@ -801,8 +801,8 @@ const logger = function() {
 
 // let i = 0;
 // const deleteElement = (e) => {
-  // console.log(e.target);
-  // console.log(e.type);
+  // console.log(e.target); //  є посиланням на об'єкт який відправив подію (<button id="btn"></button>)
+  // console.log(e.type); // тип івента (click, mouseenter, etc)
   // i++;
   // if(i == 1) {
   //   btn.removeEventListener('click', deleteElement);
@@ -826,32 +826,70 @@ const logger = function() {
 // link.addEventListener('click', (e) => {
 //   e.preventDefault(); // міняє поведєніє ссилки на таке яке вкаже програміст нище
 
-//   console.log(e.target);
+//   console.log(e.target); // є посиланням на об'єкт який відправив подію (<button id="btn"></button>)
 // });
 
 //                      032 DOM TREE
 
-// console.log(document.head);
-// console.log(document.documentElement);
-// console.log(document.body.childNodes); // дозволяє получити всі ноди й вузли які знаходяться внутрі цього родітєля
+// console.log(document.head); // отримати елемент head
+// console.log(document.documentElement); // отримати html із всім содержимим які в ньому є
+// console.log(document.body.childNodes); // дозволяє получити всі ноди й вузли які знаходяться внутрі цього родітєля (в даному випадку body)
 
 // console.log(document.body.firstChild); // отримати перший елемент
 // console.log(document.body.firstElementChild); // отримати перший елемент
 // console.log(document.body.lastElementChild); // отримати останній елемент
 // console.log(document.body.lastChild); // отримати останній елемент
 
-// console.log(document.querySelector('#current').parentNode.parentNode);
 
-// console.log(document.querySelector('#current').parentElement);
+// отримати родітєля, сосіда і дітей
+// console.log(document.querySelector('#current').parentNode.parentNode); // отримати родітєля на 2 уровня вище
+// console.log(document.querySelector('#current').parentElement); // отримати родітєля на 1 уровень вище
 
-// console.log(document.querySelector('[data-current="3"]').nextSibling);
-// console.log(document.querySelector('[data-current="3"]').previousSibling);
+// console.log(document.querySelector('[data-current="3"]').nextSibling); // отримати наступну ноду після data-current
+// console.log(document.querySelector('[data-current="3"]').previousSibling); // отримати попередню ноду після data-current
 
-// console.log(document.querySelector('[data-current="3"]').nextElementSibling);
+// console.log(document.querySelector('[data-current="3"]').nextElementSibling); // отримати наступний елемент після data-current
 
-for (let node of document.body.childNodes) {
-  if(node.nodeName == '#text'){
-    continue;
-  }
-  console.log(node);
-}
+// for (let node of document.body.childNodes) {
+//   if(node.nodeName == '#text'){
+//     continue;
+//   }
+//   console.log(node);
+// }
+
+//                        034 EVENTS ON MOBILES
+
+// touchstart
+// touchmove
+// touchend
+// touchenter
+// touchleave
+// touchcancel
+
+window.addEventListener('DOMContentLoaded', () => {
+  const box = document.querySelector('.first');
+
+  box.addEventListener('touchstart', (e) => {
+    e.preventDefault();
+
+    console.log('start');
+    console.log(e.touches);
+  });
+
+  box.addEventListener('touchmove', (e) => {
+    e.preventDefault();
+
+    console.log('move');
+    console.log(e.targetTouches[0].pageX);
+  });
+
+  box.addEventListener('touchend', (e) => {
+    e.preventDefault();
+
+    console.log('end');
+  });
+});
+
+// touches
+// targetTouches
+// changedTouches
