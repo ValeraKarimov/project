@@ -907,8 +907,8 @@ const logger = function() {
 // loadScript('js/some.js');
 
 //                     037 ClassList
-const btns = document.querySelectorAll('button');
-const wrapper = document.querySelector('.first');
+// const btns = document.querySelectorAll('button');
+// const wrapper = document.querySelector('.first');
 
 // console.log(btns[0].classList.length);
 // console.log(btns[0].classList.item(1));
@@ -920,26 +920,68 @@ const wrapper = document.querySelector('.first');
 //   console.log('red');
 // }
 
-btns[0].addEventListener('click', () => {
+// btns[0].addEventListener('click', () => {
   // if(!btns[1].classList.contains('red')) {
   //   btns[1].classList.add('red');
   // } else {
   //   btns[1].classList.remove('red');
   // }
 
-  btns[1].classList.toggle('red');
+  // btns[1].classList.toggle('red');
 
-});
+// });
 
 // console.log(btns[0].className);
 
-wrapper.addEventListener('click', (e) => {
-  // console.dir(e.target);
-  if(e.target && e.target.tagName == 'BUTTON') {
-    console.log('Hello');
-  }
+
+//   Delegating events
+// wrapper.addEventListener('click', (e) => {
+//   // console.dir(e.target);
+//   if(e.target && e.target.tagName == 'BUTTON') {
+//     console.log('Hello');
+//   }
+// });
+
+// const btn = document.createElement('button');
+// btn.classList.add('red');
+// wrapper.append(btn);
+
+//              039 setTimeout & setInterval
+
+const btn = document.querySelector('.btn');
+let timerId;
+let i = 0;
+
+btn.addEventListener('click', () => {
+  // const timerId = setTimeout(logger, 2000);
+  timerId = setInterval(logger, 2000);
 });
 
-const btn = document.createElement('button');
-btn.classList.add('red');
-wrapper.append(btn);
+clearInterval(timerId);
+
+function logger(){
+  if(i === 3) {
+    clearInterval(timerId);
+  }
+  console.log('hello');
+  i++;
+};
+
+
+function myAnimation() {
+  const elem = document.querySelector('.box');
+  let pos = 0;
+
+  const id = setInterval(frame, 10);
+  function frame(){
+    if(pos === 300){
+      clearInterval(id);
+    } else {
+      pos++;
+      elem.style.top = pos + 'px';
+      elem.style.left = pos + 'px';
+    }
+  }
+}
+
+btn.addEventListener('click', myAnimation);
