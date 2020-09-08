@@ -1016,31 +1016,54 @@ const logger = function() {
 
 //              042 doc params
 
-const box = document.querySelector('.box');
-const btn = document.querySelector('button');
+// const box = document.querySelector('.box');
+// const btn = document.querySelector('button');
 // const width = box.clientWidth;
 // const height = box.clientHeight;
 
 // const width = box.offsetWidth;
 // const height = box.offsetHeight;
 
-const width = box.scrollWidth;
-const height = box.scrollHeight;
+// const width = box.scrollWidth;
+// const height = box.scrollHeight;
 
-console.log(width, height);
+// console.log(width, height);
 
-btn.addEventListener('click', () => {
-  // box.style.height = box.scrollHeight + 'px';
-  console.log(box.scrollTop);
-})
+// btn.addEventListener('click', () => {
+//   // box.style.height = box.scrollHeight + 'px';
+//   console.log(box.scrollTop);
+// })
 
-console.log(box.getBoundingClientRect().top);
+// console.log(box.getBoundingClientRect().top);
 
-const style = window.getComputedStyle(box);
+// const style = window.getComputedStyle(box);
 
-console.log(style.display);
+// console.log(style.display);
 
-console.log(document.documentElement.scrollTop);
+// console.log(document.documentElement.scrollTop);
 
-window.scrollBy(0, 400);
-window.scrollTo(0, 400);
+// window.scrollBy(0, 400);
+// window.scrollTo(0, 400);
+
+//                045 FUNC-CONSTRUCTORS
+
+function User(name, id) {
+  this.name = name;
+  this.id = id;
+  this.human = true;
+  this.hello = function() {
+    console.log(`Hello ${this.name}`);
+  }
+}
+
+User.prototype.exit = function() {
+  console.log(`User ${this.name} exit`);
+}
+
+const ivan = new User('Ivan', 25);
+const alex = new User('Alex', 20);
+
+ivan.exit();
+
+ivan.hello();
+
