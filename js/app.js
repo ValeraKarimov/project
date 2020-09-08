@@ -988,12 +988,12 @@ const logger = function() {
 
 //                     040 DATE
 
-const now = new Date(); // date now
+// const now = new Date(); // date now
 // const now = new Date(0); // date 1970-1-1
 // const now = new Date(-999999999999); // date 1938-04-24
 
-console.log(now.setHours(18));
-console.log(now);
+// console.log(now.setHours(18));
+// console.log(now);
 
 // console.log(now.getFullYear());
 // console.log(now.getMonth());
@@ -1004,12 +1004,43 @@ console.log(now);
 // console.log(now.getTimezoneOffset());
 // console.log(now.getTime());
 
-let start = new Date();
+// let start = new Date();
 
-for(let i = 0; i < 100000; i++){
-  let some = i ** 3;
-}
+// for(let i = 0; i < 100000; i++){
+//   let some = i ** 3;
+// }
 
-let end = new Date();
+// let end = new Date();
 
-alert(`Цикл отработал за ${end - start} мс`);
+// alert(`Цикл отработал за ${end - start} мс`);
+
+//              042 doc params
+
+const box = document.querySelector('.box');
+const btn = document.querySelector('button');
+// const width = box.clientWidth;
+// const height = box.clientHeight;
+
+// const width = box.offsetWidth;
+// const height = box.offsetHeight;
+
+const width = box.scrollWidth;
+const height = box.scrollHeight;
+
+console.log(width, height);
+
+btn.addEventListener('click', () => {
+  // box.style.height = box.scrollHeight + 'px';
+  console.log(box.scrollTop);
+})
+
+console.log(box.getBoundingClientRect().top);
+
+const style = window.getComputedStyle(box);
+
+console.log(style.display);
+
+console.log(document.documentElement.scrollTop);
+
+window.scrollBy(0, 400);
+window.scrollTo(0, 400);
