@@ -53,13 +53,13 @@ const answers = [];
 
 //                  008 ІНТЕРПОЛЯЦІЯ
 
-const category = 'toys';
+// const category = 'toys';
 
 // console.log('https://someurl.com/' + category + '/' + '4'); // ES5 
 
 // console.log(`https://someurl.com/${category}/5`); //ES6
 
-const user = 'Valerii';
+// const user = 'Valerii';
 
 // alert(`Hello, ${user}`);
 
@@ -70,14 +70,14 @@ const user = 'Valerii';
 
 // інкремент, декремент
 
-let incr = 10,
-    decr = 10;
+// let incr = 10,
+//     decr = 10;
 
-incr++; // оператор інкремент постфіксний
-decr--; // оператор деркремент постфіксний
+// incr++; // оператор інкремент постфіксний
+// decr--; // оператор деркремент постфіксний
 
-++incr; // оператор інкремент префіксний
---decr; // оператор деркремент префіксний
+// ++incr; // оператор інкремент префіксний
+// --decr; // оператор деркремент префіксний
 
 
 // console.log(incr, ' ', decr);
@@ -1047,23 +1047,99 @@ const logger = function() {
 
 //                045 FUNC-CONSTRUCTORS
 
-function User(name, id) {
-  this.name = name;
-  this.id = id;
-  this.human = true;
-  this.hello = function() {
-    console.log(`Hello ${this.name}`);
+// function User(name, id) {
+//   this.name = name;
+//   this.id = id;
+//   this.human = true;
+//   this.hello = function() {
+//     console.log(`Hello ${this.name}`);
+//   }
+// }
+
+// User.prototype.exit = function() {
+//   console.log(`User ${this.name} exit`);
+// }
+
+// const ivan = new User('Ivan', 25);
+// const alex = new User('Alex', 20);
+
+// ivan.exit();
+
+// ivan.hello();
+
+//                      046 THIS
+
+// function showThis(a, b) {
+//   console.log(this);
+//   function sum() {
+//     console.log(this);
+//     return a + b;
+//   }
+
+//   console.log(sum());
+// }
+
+// showThis(4, 5);
+
+// const obj = {
+//   a: 20,
+//   b: 15,
+//   sum: function(){
+//     console.log(this);
+//   }
+// };
+// obj.sum();
+
+// function User(name, id) {
+//   this.name = name;
+//   this.id = id;
+//   this.human = true;
+//   this.hello = function() {
+//     console.log(`Hello ${this.name}`);
+//   }
+// }
+
+// let ivan = new User('Ivan', 23);
+
+// function sayName(surname) {
+//   console.log(this);
+//   console.log(this.name + surname);
+// }
+
+// const user = {
+//   name: 'John'
+// };
+
+// sayName.call(user, 'Smith');
+// sayName.apply(user, ['Smith']);
+
+// function count(num) {
+//   return this*num;
+// }
+
+// const double = count.bind(2);
+// console.log(double(3));
+// console.log(double(13));
+
+// 1) Обична функція: this = window, но якщо use strict - undefined
+// 2) Контекст у методів обєкта - сам обєкт
+// 3) this в конструкторах і класах це новий екземпляр обєкта
+// 4) Ручная привязка this: call, apply, bind
+
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {
+  this.style.backgroundColor = 'red';
+})
+
+const obj = {
+  num: 5,
+  sayNumber: function() {
+    const say = () => {
+      console.log(this.num);
+    }
+    say();
   }
 }
 
-User.prototype.exit = function() {
-  console.log(`User ${this.name} exit`);
-}
-
-const ivan = new User('Ivan', 25);
-const alex = new User('Alex', 20);
-
-ivan.exit();
-
-ivan.hello();
-
+obj.sayNumber();
