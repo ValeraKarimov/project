@@ -1192,3 +1192,22 @@ function calcOfDouble(num, basis = 2) {
 }
 
 calcOfDouble(3);
+
+//            051 JSON
+
+const persone = {
+  name: 'Valerii',
+  tel: '+380999999',
+  parents: {
+    mom: 'Olga',
+    dad: 'Mike'
+  }
+};
+
+// console.log(JSON.stringify(persone)); // send data to server (stringify)
+// console.log(JSON.parse(JSON.stringify(persone))); // get data from server (parse)
+
+const clone = JSON.parse(JSON.stringify(persone));
+clone.parents.mom = 'Ann';
+console.log(persone); // виведе старий обєкт
+console.log(clone); // виведе новий модифікований обєкт
