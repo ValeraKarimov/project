@@ -1180,34 +1180,65 @@ const logger = function() {
 
 // 							049 REST Operator
 // Оператор rest принімає n-ну кількість аргументів, spread навпаки розкладує масив на отдільні елементи
-const log = function(a, b, ...rest) {
-	console.log(a, b, rest);
-}
+// const log = function(a, b, ...rest) {
+// 	console.log(a, b, rest);
+// }
 
-log('basic', 'rest', 'Operator', 'usage');
+// log('basic', 'rest', 'Operator', 'usage');
 
-function calcOfDouble(num, basis = 2) {
-	// basis = basis || 2; // ES5
-	console.log(num * basis);
-}
+// function calcOfDouble(num, basis = 2) {
+// 	// basis = basis || 2; // ES5
+// 	console.log(num * basis);
+// }
 
-calcOfDouble(3);
+// calcOfDouble(3);
 
 //            051 JSON
 
-const persone = {
-  name: 'Valerii',
-  tel: '+380999999',
-  parents: {
-    mom: 'Olga',
-    dad: 'Mike'
-  }
-};
+// const persone = {
+//   name: 'Valerii',
+//   tel: '+380999999',
+//   parents: {
+//     mom: 'Olga',
+//     dad: 'Mike'
+//   }
+// };
 
 // console.log(JSON.stringify(persone)); // send data to server (stringify)
 // console.log(JSON.parse(JSON.stringify(persone))); // get data from server (parse)
 
-const clone = JSON.parse(JSON.stringify(persone));
-clone.parents.mom = 'Ann';
-console.log(persone); // виведе старий обєкт
-console.log(clone); // виведе новий модифікований обєкт
+// const clone = JSON.parse(JSON.stringify(persone));
+// clone.parents.mom = 'Ann';
+// console.log(persone); // виведе старий обєкт
+// console.log(clone); // виведе новий модифікований обєкт
+
+
+
+//          052 AJAX
+
+const inputRub = document.querySelector('#rub');
+const inputUsd = document.querySelector('#usd');
+
+inputRub.addEventListener('input', () => {
+  const request = new XMLHttpRequest();
+
+  // request.open(method, url, async, login, pass);
+
+  request.open('GET', 'js/current.json');
+  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+  request.send();
+
+  request.addEventListener('load', () => {
+    if(request.status === 200) {
+      const data = JSON.parse(request.response);
+      inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+    } else {
+      inputUsd.value = "Error";
+    }
+  });
+
+  // status
+  // statusText
+  // response
+  // readyState
+});
