@@ -1126,54 +1126,69 @@ const logger = function() {
 // 3) this в конструкторах і класах це новий екземпляр обєкта
 // 4) Ручная привязка this: call, apply, bind
 
-const btn = document.querySelector('button');
+// const btn = document.querySelector('button');
 
-btn.addEventListener('click', function() {
-  this.style.backgroundColor = 'red';
-})
+// btn.addEventListener('click', function() {
+//   this.style.backgroundColor = 'red';
+// })
 
-const obj = {
-  num: 5,
-  sayNumber: function() {
-    const say = () => {
-      console.log(this.num);
-    }
-    say();
-  }
-}
+// const obj = {
+//   num: 5,
+//   sayNumber: function() {
+//     const say = () => {
+//       console.log(this.num);
+//     }
+//     say();
+//   }
+// }
 
-obj.sayNumber();
+// obj.sayNumber();
 
 //                  047 Classes ES6
 
-class Rectangle {
-  constructor(height, width) {
-    this.height = height;
-    this.width = width;
-  }
+// class Rectangle {
+//   constructor(height, width) {
+//     this.height = height;
+//     this.width = width;
+//   }
 
-  calcArea() {
-    return this.height * this.width;
-  }
-}
+//   calcArea() {
+//     return this.height * this.width;
+//   }
+// }
 
-class ColoredRectangleWithText extends Rectangle {
-  constructor(height, width, text, bgColor) {
-    super(height, width);
-    this.text = text;
-    this.bgColor = bgColor;
-  }
+// class ColoredRectangleWithText extends Rectangle {
+//   constructor(height, width, text, bgColor) {
+//     super(height, width);
+//     this.text = text;
+//     this.bgColor = bgColor;
+//   }
 
-  showMyProps() {
-    console.log(`Text: ${this.text}, Color: ${this.bgColor}`);
-  }
-}
+//   showMyProps() {
+//     console.log(`Text: ${this.text}, Color: ${this.bgColor}`);
+//   }
+// }
 
-const div = new ColoredRectangleWithText(24, 10, 'Hello', 'red');
+// const div = new ColoredRectangleWithText(24, 10, 'Hello', 'red');
 
-div.showMyProps();
-console.log(div.calcArea());
+// div.showMyProps();
+// console.log(div.calcArea());
 
 // const square = new Rectangle(10, 10);
 
 // console.log(square.calcArea());
+
+// 							049 REST Operator
+// Оператор rest принімає n-ну кількість аргументів, spread навпаки розкладує масив на отдільні елементи
+const log = function(a, b, ...rest) {
+	console.log(a, b, rest);
+}
+
+log('basic', 'rest', 'Operator', 'usage');
+
+function calcOfDouble(num, basis = 2) {
+	// basis = basis || 2; // ES5
+	console.log(num * basis);
+}
+
+calcOfDouble(3);
