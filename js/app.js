@@ -1216,29 +1216,88 @@ const logger = function() {
 
 //          052 AJAX
 
-const inputRub = document.querySelector('#rub');
-const inputUsd = document.querySelector('#usd');
+// const inputRub = document.querySelector('#rub');
+// const inputUsd = document.querySelector('#usd');
 
-inputRub.addEventListener('input', () => {
-  const request = new XMLHttpRequest();
+// inputRub.addEventListener('input', () => {
+//   const request = new XMLHttpRequest();
 
-  // request.open(method, url, async, login, pass);
+//   // request.open(method, url, async, login, pass);
 
-  request.open('GET', 'js/current.json');
-  request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
-  request.send();
+//   request.open('GET', 'js/current.json');
+//   request.setRequestHeader('Content-type', 'application/json; charset=utf-8');
+//   request.send();
 
-  request.addEventListener('load', () => {
-    if(request.status === 200) {
-      const data = JSON.parse(request.response);
-      inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
-    } else {
-      inputUsd.value = "Error";
-    }
+//   request.addEventListener('load', () => {
+//     if(request.status === 200) {
+//       const data = JSON.parse(request.response);
+//       inputUsd.value = (+inputRub.value / data.current.usd).toFixed(2);
+//     } else {
+//       inputUsd.value = "Error";
+//     }
+//   });
+
+//   // status
+//   // statusText
+//   // response
+//   // readyState
+// });
+
+//                  055 Promise (ES6)
+
+// console.log('Запрос даних...');
+
+// const req = new Promise(function(resolve, reject){
+// setTimeout(() => {
+//   console.log('подготовка даних...');
+
+//   const product = {
+//     name: 'TV',
+//     price: 2000
+//   }
+
+//   resolve(product);
+
+// }, 2000);
+// });
+
+// req.then((product) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       product.status = 'order';
+//       // reject();
+//       resolve(product);
+//     }, 2000);
+//   });
+// }).then(data => {
+//   data.modify = true;
+//   return data;
+// }).then(data => {
+//   console.log(data);
+// }).catch(() => {
+//   console.error('Произошла ошибка');
+// }).finally(() => {
+//   console.log('finally');
+// })
+
+const test = time => {
+  return new Promise(resolve => {
+    setTimeout(() => resolve(), time);
   });
+}
 
-  // status
-  // statusText
-  // response
-  // readyState
+// test(1000).then(() => {
+//   console.log('1000ms');
+// });
+
+// test(1000).then(() => {
+//   console.log('2000ms');
+// });
+
+// Promise.all([test(1000), test(2000)]).then(() => {
+//   console.log('all');
+// });
+
+Promise.race([test(1000), test(2000)]).then(() => {
+  console.log('all');
 });
