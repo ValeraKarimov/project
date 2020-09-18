@@ -1280,11 +1280,11 @@ const logger = function() {
 //   console.log('finally');
 // })
 
-const test = time => {
-  return new Promise(resolve => {
-    setTimeout(() => resolve(), time);
-  });
-}
+// const test = time => {
+//   return new Promise(resolve => {
+//     setTimeout(() => resolve(), time);
+//   });
+// }
 
 // test(1000).then(() => {
 //   console.log('1000ms');
@@ -1298,6 +1298,68 @@ const test = time => {
 //   console.log('all');
 // });
 
-Promise.race([test(1000), test(2000)]).then(() => {
-  console.log('all');
-});
+// Promise.race([test(1000), test(2000)]).then(() => {
+//   console.log('all');
+// });
+
+
+//            056 Fetch
+
+// fetch('https://jsonplaceholder.typicode.com/posts', {
+//   method: "POST",
+//   body: JSON.stringify({name: 'alex'}),
+//   headers: {
+//     'Content-type': 'application/json'
+//   }
+// })
+//   .then(response => response.json())
+//   .then(json => console.log(json));
+
+//               057 Array search methods
+
+// filter
+// const names = ['ivan', 'ann', 'ksenia', 'voldemar'];
+// const shortNames = names.filter(function(name) {
+//   return name.length < 5;
+// });
+// console.log(shortNames);
+
+// map
+// const answers = ['ivAn', 'aNNa', 'Hello'];
+// const result = answers.map(item => item.toLowerCase());
+// console.log(result);
+
+
+// every/some
+// const some = [4, 'qwq', 'dfsdffa'];
+// console.log(some.some(item => typeof(item) === 'number'));
+// console.log(some.every(item => typeof(item) === 'number'));
+
+// reduce
+
+// const arr = [4,5,1,3,2,6];
+//                   // 0    4
+//                   // 4    5
+//                   // 9    1
+//                   // 10   3
+// const result = arr.reduce((sum, current) => sum + current, 3);
+// console.log(result);
+
+
+// const arr = ['apple', 'pear', 'plum'];
+
+// const result = arr.reduce((sum, current) => `${sum}, ${current}`);
+// console.log(result);
+
+const obj = {
+  ivan: 'persone',
+  ann: 'persone',
+  dog: 'animal',
+  cat: 'animal'
+}
+
+const newArr = Object.entries(obj)
+.filter(item => item[1] === 'persone')
+.map(item => item[0]);
+
+console.log(newArr);
