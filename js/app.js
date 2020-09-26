@@ -1415,17 +1415,49 @@ const logger = function() {
 
 //                068 Акцесори - Getter & Setter
 
-const persone = {
-  name: 'Alex',
-  age: 25,
+// const persone = {
+//   name: 'Alex',
+//   age: 25,
 
-  get userAge() {
-    return this.age;
-  },
-  set userAge(num) {
-    this.age = num;
+//   get userAge() {
+//     return this.age;
+//   },
+//   set userAge(num) {
+//     this.age = num;
+//   }
+// };
+
+// console.log(persone.userAge);
+// console.log(persone.userAge = 30);
+
+//              069 інкапсуляція
+
+class User {
+  constructor(name, age) {
+    this.name = name;
+    this._age = age;  
   }
-};
 
-console.log(persone.userAge);
-console.log(persone.userAge = 30);
+  say() {
+    console.log(`Username: ${this.name}, Age: ${this._age}`);
+  }
+
+  get age(){
+    return this._age;
+  }
+
+  set age(age){
+    if(typeof age === 'number' && age > 0 && age < 110) {
+      this._age = age;
+    } else {
+      console.log('непопустиме значення');
+    }
+  }
+
+}
+
+const ivan = new User('Ivan', 25);
+console.log(ivan.age);
+ivan.age = 99;
+
+ivan.say();
