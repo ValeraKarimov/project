@@ -1294,10 +1294,13 @@ const logger = function() {
 //   console.log('2000ms');
 // });
 
+
+// all виконуєсться після останнього setTimeout
 // Promise.all([test(1000), test(2000)]).then(() => {
 //   console.log('all');
 // });
 
+// race виконується після першого setTimeout
 // Promise.race([test(1000), test(2000)]).then(() => {
 //   console.log('all');
 // });
@@ -1351,15 +1354,78 @@ const logger = function() {
 // const result = arr.reduce((sum, current) => `${sum}, ${current}`);
 // console.log(result);
 
-const obj = {
-  ivan: 'persone',
-  ann: 'persone',
-  dog: 'animal',
-  cat: 'animal'
-}
+// const obj = {
+//   ivan: 'persone',
+//   ann: 'persone',
+//   dog: 'animal',
+//   cat: 'animal'
+// }
 
-const newArr = Object.entries(obj)
-.filter(item => item[1] === 'persone')
-.map(item => item[0]);
+// const newArr = Object.entries(obj)
+// .filter(item => item[1] === 'persone')
+// .map(item => item[0]);
 
-console.log(newArr);
+// console.log(newArr);
+
+
+//             064 Local Storage
+// localStorage.setItem('number', 5);
+// localStorage.getItem('number');
+
+// localStorage.removeItem('number');
+
+// localStorage.clear();
+
+
+//             065 regular expressions
+
+// new RegExp('pattern', 'flags');
+// /pattern/f
+
+// Search
+
+// const ans = prompt('Enter your number');
+
+// const reg = /\d/g;
+// console.log(ans.match(reg));
+
+// const str = 'my name is R2D2';
+
+// console.log(str.match(/\w\d\w\d/i));
+
+// \D
+// \W
+
+// \d
+// \w
+// \s
+
+// i
+// g
+// m
+
+// console.log(ans.search(reg));
+// console.log(ans.match(reg));
+
+// const pass = prompt('pass');
+
+// console.log(pass.replace(/\./g, "*"));
+
+// console.log('12-34-56'.replace(/-/g, ':'));
+
+//                068 Акцесори - Getter & Setter
+
+const persone = {
+  name: 'Alex',
+  age: 25,
+
+  get userAge() {
+    return this.age;
+  },
+  set userAge(num) {
+    this.age = num;
+  }
+};
+
+console.log(persone.userAge);
+console.log(persone.userAge = 30);
