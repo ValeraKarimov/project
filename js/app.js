@@ -1478,8 +1478,40 @@ const logger = function() {
 
 //          072 ES6 Modules
 
-import {one, two} from './main';
-import sayHi from './main';
+// import {one, two} from './main';
+// import sayHi from './main';
 
-console.log(`${one} and ${two}`);
-sayHi();
+// console.log(`${one} and ${two}`);
+// sayHi();
+
+//         079 Function generators
+
+// function* generator(){
+//   yield 'S';
+//   yield 'c';
+//   yield 'r';
+//   yield 'i';
+//   yield 'p';
+//   yield 't';
+// };
+
+// const str = generator();
+// console.log(str.next);
+// console.log(str.next);
+// console.log(str.next.value);
+
+function* count(n) {
+  for (let i = 0; i < n; i++) {
+    yield i;
+  }
+}
+
+for(let k of count(7)) {
+  console.log(k);
+}
+
+const counter = count(7);
+
+console.log(counter.next().value);
+console.log(counter.next().value);
+console.log(counter.next().value);
